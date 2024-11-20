@@ -38,7 +38,7 @@ for student in students:
 ## Visualization
 
 ```python
-colors = {'A': 'blue', 'B': 'red'}
+colors = {'A': 'blue', 'B': 'red', "C": "purple"}
 bar_colors = []
 for group in groups:
     bar_colors.append(colors[group])
@@ -59,7 +59,8 @@ plt.ylabel('Student')
 import matplotlib.patches as mpatches
 blue_patch = mpatches.Patch(color='blue', label='Group A')
 red_patch = mpatches.Patch(color='red', label='Group B')
-plt.legend(handles=[blue_patch, red_patch], loc='lower right')
+purple_patch = mpatches.Patch(color="purple", label="Group C")
+plt.legend(handles=[blue_patch, red_patch, purple_patch], loc='lower right')
 
 ```
 

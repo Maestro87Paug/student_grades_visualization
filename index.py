@@ -42,6 +42,14 @@ data = {
     "Pablo": (3, "B"),
     "Pedro": (2, "B"),
     "Rafael": (1, "B"),
+    "Roberto": (10, "C"),
+    "Silvia": (9, "C"),
+    "Tomas": (8, "C"),
+    "Valentina": (7, "C"),
+    "Victor": (6, "C"),
+    "Xavier": (5, "C"),
+    "Yolanda": (4, "C"),
+    "Zacarias": (3, "C"),
 }
 
 # Lists for the data
@@ -53,7 +61,7 @@ for student in students:
     groups.append(data[student][1])
 
 # Colors for the groups
-colors = {'A': 'blue', 'B': 'red'}
+colors = {'A': 'blue', 'B': 'red', "C": "purple"}
 bar_colors = []
 for group in groups:
     bar_colors.append(colors[group])
@@ -71,7 +79,8 @@ plt.ylabel('Student')
 import matplotlib.patches as mpatches
 blue_patch = mpatches.Patch(color='blue', label='Group A')
 red_patch = mpatches.Patch(color='red', label='Group B')
-plt.legend(handles=[blue_patch, red_patch], loc='lower right')
+purple_patch = mpatches.Patch(color="purple", label="Group B")
+plt.legend(handles=[blue_patch, red_patch, purple_patch], loc='lower right')
 
 # Show the values next to the bars
 for bar in bars:
