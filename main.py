@@ -21,6 +21,7 @@
 
 
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 # Sample data
 data = {
@@ -53,12 +54,26 @@ data = {
 }
 
 # Lists for the data
-students = list(data.keys())
-scores = []
-groups = []
-for student in students:
-    scores.append(data[student][0])
-    groups.append(data[student][1])
+def get_students(data):
+    students = list(data.keys())
+    return students
+
+def get_scores(data):
+    scores = []
+    for student in get_students(data):
+        scores.append(data[student][0])
+    return scores
+
+def get_groups(data):
+    groups = []
+    for student in get_students(data):
+        groups.append(data[student][1])
+    return groups
+
+# Lists for the data
+students = get_students(data)
+scores = get_scores(data)
+groups = get_groups(data)
 
 # Colors for the groups
 colors = {'A': 'blue', 'B': 'red', "C": "purple"}
@@ -76,11 +91,11 @@ plt.xlabel('Score')
 plt.ylabel('Student')
 
 # Add the legend
-import matplotlib.patches as mpatches
-blue_patch = mpatches.Patch(color='blue', label='Group A')
-red_patch = mpatches.Patch(color='red', label='Group B')
-purple_patch = mpatches.Patch(color="purple", label="Group B")
-plt.legend(handles=[blue_patch, red_patch, purple_patch], loc='lower right')
+def add_legend(bars, colors):
+    blue_patch = mpatches.Patch(color='blue', label='Group A')
+    red_patch = mpatches.Patch(color='red', label='Group B')
+    purple_patch = mpatches.Patch(color="purple", label="Group B")
+    plt.legend(handles=[blue_patch, red_patch, purple_patch], loc='lower right')
 
 # Show the values next to the bars
 for bar in bars:
@@ -98,3 +113,5 @@ plt.subplots_adjust(left=0.2)
 
 # Show the plot
 plt.show()
+
+
